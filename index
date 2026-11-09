@@ -1,48 +1,1329 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Travel Express | Smart Travel Desk</title>
-<style>
-:root{--navy:#071f36;--blue:#0678e8;--cyan:#12bddd;--green:#10a879;--purple:#7048e8;--bg:#f2f7fb;--text:#15263b;--muted:#64748b;--line:#dce6f1;--amber:#ee9b14;--red:#dc4962;--shadow:0 14px 38px rgba(18,52,87,.11)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,Segoe UI,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}.topbar{position:sticky;top:0;z-index:40;background:#ffffffed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.top-inner{max-width:1320px;margin:auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;gap:11px;align-items:center;font-weight:900;font-size:20px}.logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,var(--cyan),var(--blue));box-shadow:0 8px 18px #0877e64d}.brand small{display:block;font-size:9px;letter-spacing:1.7px;color:#8a99aa}.contact{font-size:11px;color:var(--muted);text-align:right}.shell{max-width:1320px;margin:auto;padding:20px}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;background:#fff;border:1px solid var(--line);padding:6px;border-radius:18px;margin-bottom:20px}.tab{border:0;background:transparent;padding:12px;border-radius:12px;font-weight:800;color:var(--muted)}.tab.active{background:var(--navy);color:#fff}.hero{position:relative;overflow:hidden;border-radius:30px;padding:30px;background:linear-gradient(130deg,#071f36,#0b426f 62%,#087db4);color:#fff;box-shadow:var(--shadow)}.hero h1{font-size:36px;line-height:1.1;margin:12px 0 7px}.hero p{color:#ceeeff}.eyebrow{display:inline-flex;background:#ffffff1c;border:1px solid #ffffff2c;border-radius:99px;padding:6px 10px;font-size:11px;font-weight:900}.trip-types{display:flex;gap:7px;margin-top:18px;flex-wrap:wrap}.trip-type{border:1px solid #ffffff42;background:#ffffff15;color:#fff;border-radius:99px;padding:8px 14px;font-weight:800}.trip-type.active{background:#fff;color:var(--navy)}.search-panel{margin-top:12px;background:#fff;color:var(--text);padding:11px;border-radius:18px;box-shadow:0 20px 40px #001d3340}.search-grid{display:grid;grid-template-columns:1.1fr 1.1fr .9fr .9fr .7fr auto;gap:8px}.field{background:#f4f8fb;border-radius:12px;padding:8px 11px}.field label{display:block;color:#8797a8;font-size:9px;text-transform:uppercase;font-weight:900}.field input,.field select{border:0;background:transparent;width:100%;font-weight:800;color:var(--text);outline:0;padding:4px 0}.traveller-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}.source-row{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:9px;padding:9px;background:#f6f9fc;border-radius:12px}.source-check{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700}.primary{border:0;border-radius:12px;padding:12px 20px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff;font-weight:900}.multi-list{display:grid;gap:8px}.multi-row{display:grid;grid-template-columns:1fr 1fr .8fr auto;gap:8px}.add-leg{width:100%;border:1px dashed #93b8d6;background:#eef8ff;color:#08669e;border-radius:11px;padding:10px;font-weight:900;margin-top:8px}.remove{border:0;border-radius:10px;background:#fff0f2;color:var(--red);font-weight:900}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:25px 0 11px}.section-head h2{margin:0;font-size:22px}.section-head p,.muted{margin:2px 0 0;color:var(--muted);font-size:12px}.sort,.secondary{border:1px solid var(--line);background:#fff;padding:9px 12px;border-radius:10px;font-weight:700}.content-grid{display:grid;grid-template-columns:1.45fr .72fr;gap:20px}.cards{display:grid;gap:11px}.empty{padding:35px;text-align:center;background:#fff;border:1px dashed #aec5d9;border-radius:18px;color:var(--muted)}.empty strong{display:block;color:var(--text);font-size:17px}.flight,.panel,.side-card,.hotel{border:1px solid var(--line);background:#fff;border-radius:18px;padding:16px;box-shadow:0 5px 16px #2846640a}.flight.selected,.hotel.selected{border:2px solid var(--blue)}.flight-top,.hotel-top{display:flex;justify-content:space-between;gap:12px}.flight-main{display:flex;gap:12px;align-items:center}.rank{width:43px;height:43px;border-radius:12px;background:#eaf6ff;color:var(--blue);display:grid;place-items:center;font-weight:900}.route{font-weight:900;font-size:16px}.chip{display:inline-block;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:900;background:#e8f6ff;color:#076aae}.price{text-align:right;font-size:18px;font-weight:900}.flight-meta{margin-top:13px;display:grid;grid-template-columns:repeat(5,1fr);gap:7px;background:#f6f9fc;border-radius:11px;padding:10px}.flight-meta span{font-size:10px;color:var(--muted)}.flight-meta b{display:block;font-size:12px}.check-item{display:flex;gap:10px;margin-top:10px;padding:11px;background:#f7f9fc;border-radius:11px}.check-icon{width:28px;height:28px;border-radius:8px;background:#e9f6ff;color:var(--blue);display:grid;place-items:center;font-weight:900}.warning{margin-top:12px;background:#fff5db;color:#8a5a00;padding:11px;border-radius:11px;font-size:11px}.pdf-btn{width:100%;border:0;border-radius:15px;background:var(--navy);color:#fff;font-weight:900;padding:15px;margin-top:12px}.pdf-btn:disabled{opacity:.45}.hotels{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.hotel h4{margin:8px 0}.hotel-price{color:var(--blue);font-size:17px;font-weight:900;margin-top:10px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{color:#fff;padding:19px;border-radius:20px;box-shadow:var(--shadow)}.metric:nth-child(1){background:linear-gradient(135deg,#087ce8,#22b9e3)}.metric:nth-child(2){background:linear-gradient(135deg,#7048e8,#9d67ed)}.metric:nth-child(3){background:linear-gradient(135deg,#0ca878,#35d39d)}.metric:nth-child(4){background:linear-gradient(135deg,#ee8d1a,#f8ba38)}.metric label{display:block;font-size:11px;margin-top:9px}.metric strong{font-size:23px}.dash-grid{display:grid;grid-template-columns:1.45fr .75fr;gap:16px;margin-top:16px}.chart{height:265px;display:flex;align-items:end;gap:9px;padding-top:32px}.bar-wrap{height:100%;flex:1;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:7px}.bar{width:100%;background:linear-gradient(180deg,#31d2ec,var(--blue));border-radius:8px 8px 2px 2px;min-height:8px}.bar-wrap small{font-size:9px;color:var(--muted)}.donut-wrap{display:grid;place-items:center;padding:22px}.donut{width:180px;height:180px;border-radius:50%;background:conic-gradient(#0877e6 0 30%,#7048e8 30% 52%,#12bddd 52% 70%,#10a879 70% 84%,#ee9b14 84% 94%,#cbd5e1 94%);display:grid;place-items:center}.donut:after{content:"Destinations";width:100px;height:100px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:900}.table-box{overflow:auto;margin-top:16px}.data-table{width:100%;border-collapse:collapse;min-width:1120px}.data-table th,.data-table td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);font-size:11px}.data-table th{background:#f7f9fc}.data-table input{width:105px;border:1px solid var(--line);border-radius:7px;padding:7px}.profit{font-weight:900;color:var(--green)}.danger-btn{border:0;background:#fff0f2;color:var(--red);border-radius:8px;padding:7px 9px}.toolbar{display:flex;gap:8px}.settings-wrap{max-width:900px;margin:auto}.form-row{margin-top:15px}.form-row label{font-weight:900}.key-input{display:grid;grid-template-columns:170px 1fr 1fr;border:1px solid var(--line);background:#f7f9fc;border-radius:11px;overflow:hidden}.key-input input,.key-input select{border:0;background:transparent;padding:12px;outline:0}.save{width:100%;margin-top:18px;background:var(--navy);color:#fff;border:0;border-radius:12px;padding:13px;font-weight:900}.info{background:#eaf6ff;border:1px solid #b9def4;border-radius:15px;padding:16px;margin-top:15px}.loading{height:180px;display:grid;place-items:center;background:#fff;border-radius:18px}.spinner{width:28px;height:28px;border:3px solid #cee7fa;border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite;margin:auto}@keyframes spin{to{transform:rotate(360deg)}}.error{background:#fff0f2;color:#a6293d;border:1px solid #ffc7d0;padding:12px;border-radius:12px;margin-top:10px}.toast{position:fixed;right:20px;bottom:20px;background:#0d3c2f;color:#fff;padding:12px 16px;border-radius:12px;z-index:60}@media(max-width:960px){.search-grid{grid-template-columns:1fr 1fr}.content-grid,.dash-grid{grid-template-columns:1fr}.hotels,.metrics{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.shell{padding:12px 12px 90px}.contact{display:none}.hero{padding:22px 15px}.hero h1{font-size:27px}.search-grid,.traveller-row,.multi-row{grid-template-columns:1fr}.flight-top{display:block}.price{text-align:left}.flight-meta{grid-template-columns:repeat(2,1fr)}.hotels,.metrics{grid-template-columns:1fr}.tabs{position:fixed;z-index:50;bottom:0;left:0;right:0;margin:0}.key-input{grid-template-columns:1fr}}
-</style><script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script></head><body>
-<header class="topbar"><div class="top-inner"><div class="brand"><div class="logo">✈</div><div>Travel <span style="color:var(--blue)">Express</span><small>LOVE TO MAKE YOUR JOURNEY PLEASANT</small></div></div><div class="contact"><b>+880 1729 911908</b><br>Uttara East, Dhaka-1230 · info@travelexpress.net.bd</div></div></header>
-<main class="shell"><nav class="tabs"><button type="button" class="tab active" data-page="search">🔎 Smart Search</button><button type="button" class="tab" data-page="dashboard">📊 Analytics</button><button type="button" class="tab" data-page="settings">⚙ API Setup</button></nav>
-<section id="searchPage" class="page"><div class="hero"><span class="eyebrow">✦ COMMITMENT · QUICK RESPONSE · ATTRACTIVE PRICE</span><h1>Live flights, destination hotels and smarter customer proposals.</h1><p>Search domestic and global routes, compare authorized providers and prepare a polished downloadable travel proposal.</p><div class="trip-types"><button type="button" class="trip-type active" data-trip="oneway">One way</button><button type="button" class="trip-type" data-trip="round">Round trip</button><button type="button" class="trip-type" data-trip="multi">Multi-city</button></div><div class="search-panel"><div id="standardSearch" class="search-grid"><div class="field"><label>From</label><input id="from" list="airports" placeholder="Dhaka, Bangladesh (DAC)"></div><div class="field"><label>To</label><input id="to" list="airports" placeholder="Bangkok, Thailand (BKK)"></div><div class="field"><label>Departure</label><input id="depart" type="date"></div><div class="field"><label>Return</label><input id="returnDate" type="date" disabled></div><div class="field"><label>Cabin</label><select id="cabin"><option value="ECONOMY">Economy</option><option value="BUSINESS">Business</option><option value="FIRST">First</option></select></div><button type="button" class="primary search-trigger">Search live</button></div><div id="multiSearch" class="hidden"><div id="multiList" class="multi-list"></div><button type="button" class="add-leg" id="addLeg">+ Add another city</button><button type="button" class="primary search-trigger" style="width:100%;margin-top:8px">Search live</button></div><div class="traveller-row"><div class="field"><label>Adults, age 12+</label><input id="adults" type="number" min="1" max="9" value="1"></div><div class="field"><label>Children, age 2-11</label><input id="children" type="number" min="0" max="8" value="0"></div><div class="field"><label>Infants, under 2</label><input id="infants" type="number" min="0" max="4" value="0"></div></div><div class="source-row"><b>Show results from:</b><label class="source-check"><input type="checkbox" name="flightSource" value="sharetrip" checked>ShareTrip</label><label class="source-check"><input type="checkbox" name="flightSource" value="google" checked>Google Flights partner</label><label class="source-check"><input type="checkbox" name="flightSource" value="flightexpert" checked>Flight Expert</label><label class="source-check"><input type="checkbox" name="flightSource" value="custom" checked>API setup provider</label></div></div></div><datalist id="airports"></datalist><div id="searchError" class="error hidden"></div><div class="content-grid"><div><div class="section-head"><div><h2>Live flight options</h2><p>Ranked by price, duration, stops and baggage.</p></div><select class="sort" id="sortFlights"><option value="recommended">Recommended</option><option value="price">Lowest price</option><option value="duration">Shortest duration</option></select></div><div id="flightResults" class="cards"><div class="empty"><strong>Connect an authorized flight provider</strong>Configure a secure backend endpoint in API Setup. No sample fares are displayed.</div></div></div><aside><div class="section-head"><div><h2>Traveller requirements</h2></div></div><div class="side-card" id="checklist"><div class="empty"><strong>No itinerary selected</strong>Requirements appear after a live result is selected.</div></div><button type="button" class="pdf-btn" id="pdfBtn" disabled>⬇ Download smart-search PDF</button></aside></div><div class="section-head"><div><h2>Live destination hotels</h2></div><select class="sort" id="hotelSource"><option value="all">All connected providers</option><option value="booking">Booking.com</option><option value="agoda">Agoda</option><option value="custom">API setup provider</option></select></div><div id="hotelResults" class="hotels"><div class="empty"><strong>No live hotel results yet</strong>Hotels load after a successful search.</div></div></section>
-<section id="dashboardPage" class="page hidden"><div class="section-head"><div><span class="eyebrow" style="background:#eef0ff;color:#6849c8">TRAVEL EXPRESS INTELLIGENCE</span><h2>Business performance cockpit</h2></div><div class="toolbar"><button type="button" id="addSale" class="secondary">+ Add product</button><button type="button" id="exportSales" class="secondary">Export CSV</button></div></div><div class="metrics" id="metrics"></div><div class="dash-grid"><div class="panel"><h3>Monthly revenue</h3><div class="chart" id="salesChart"></div></div><div class="panel"><h3>Destination mix</h3><div class="donut-wrap"><div class="donut"></div></div><div class="muted" id="destinationLegend"></div></div></div><div class="panel table-box"><h3>Sales performance</h3><p class="muted">Net profit = revenue − tax − VAT − airline payment − AIT − discounts.</p><table class="data-table"><thead><tr><th>Product</th><th>Customers</th><th>Revenue</th><th>Tax %</th><th>Tax amount</th><th>VAT %</th><th>VAT amount</th><th>Airline payment</th><th>AIT</th><th>Discounts</th><th>Net profit</th><th></th></tr></thead><tbody id="salesBody"></tbody></table></div></section>
-<section id="settingsPage" class="page hidden"><div class="settings-wrap"><div class="section-head"><div><span class="eyebrow" style="background:#fff3d9;color:#916000">SECURE LIVE CONNECTIONS</span><h2>API and aggregator setup</h2><p>Use Travel Express backend proxy endpoints, not provider secrets in this file.</p></div></div><div class="panel"><h3>Provider connections</h3><div id="apiFields"></div><button type="button" class="save" id="saveApi">Save connection settings</button></div><div class="panel" style="margin-top:15px"><h3>Manual Test Data</h3><p class="muted">Upload the Travel Express test workbook to load flights, hotels, traveller requirements and dashboard sales without changing the live API setup.</p><div class="key-input" style="grid-template-columns:1fr auto;margin-top:12px"><input id="manualExcel" type="file" accept=".xlsx,.xls"><button type="button" class="secondary" id="loadManual">Load test workbook</button></div><div id="manualStatus" class="info hidden" style="margin-top:10px"></div></div><div class="info"><b>Security requirement:</b> Production credentials must stay on a secure backend.</div></div></section></main><div id="toast" class="toast hidden"></div>
-<script>
-const airports=[['Dhaka','Bangladesh','DAC'],['Chattogram','Bangladesh','CGP'],['Cox’s Bazar','Bangladesh','CXB'],['Sylhet','Bangladesh','ZYL'],['Saidpur','Bangladesh','SPD'],['Jashore','Bangladesh','JSR'],['Bangkok','Thailand','BKK'],['Phuket','Thailand','HKT'],['Kuala Lumpur','Malaysia','KUL'],['Singapore','Singapore','SIN'],['Dubai','United Arab Emirates','DXB'],['Abu Dhabi','United Arab Emirates','AUH'],['Doha','Qatar','DOH'],['Jeddah','Saudi Arabia','JED'],['Istanbul','Türkiye','IST'],['London','United Kingdom','LHR'],['Paris','France','CDG'],['Frankfurt','Germany','FRA'],['New York','United States','JFK'],['Toronto','Canada','YYZ'],['Sydney','Australia','SYD'],['Auckland','New Zealand','AKL'],['Delhi','India','DEL'],['Kolkata','India','CCU'],['Mumbai','India','BOM'],['Kathmandu','Nepal','KTM'],['Colombo','Sri Lanka','CMB'],['Malé','Maldives','MLE'],['Jakarta','Indonesia','CGK'],['Bali','Indonesia','DPS'],['Hong Kong','Hong Kong','HKG'],['Tokyo','Japan','NRT'],['Seoul','South Korea','ICN']];
-let tripType='oneway',multiLegs=2,flights=[],hotels=[],selectedFlight=null,selectedHotel=null,sales=[];
-const $=id=>document.getElementById(id),money=n=>new Intl.NumberFormat('en-BD',{style:'currency',currency:'BDT',maximumFractionDigits:0}).format(Number(n)||0),esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-function toast(m){$('toast').textContent=m;$('toast').classList.remove('hidden');setTimeout(()=>$('toast').classList.add('hidden'),2800)}function showError(m){$('searchError').textContent=m;$('searchError').classList.remove('hidden')}function clearError(){$('searchError').classList.add('hidden')}function extractCode(v){const m=String(v).toUpperCase().match(/\(([A-Z]{3})\)|\b([A-Z]{3})$/);return m?(m[1]||m[2]):String(v).trim().toUpperCase()}
-function init(){ $('airports').innerHTML=airports.map(a=>`<option value="${a[0]}, ${a[1]} (${a[2]})">`).join('');let d=new Date();d.setDate(d.getDate()+1);$('depart').value=d.toISOString().slice(0,10);d.setDate(d.getDate()+5);$('returnDate').value=d.toISOString().slice(0,10);renderApi();loadSales();setTrip('oneway') }
-function setTrip(t){tripType=t;document.querySelectorAll('.trip-type').forEach(b=>b.classList.toggle('active',b.dataset.trip===t));$('standardSearch').classList.toggle('hidden',t==='multi');$('multiSearch').classList.toggle('hidden',t!=='multi');$('returnDate').disabled=t!=='round';if(t==='multi')renderMulti()}
-function renderMulti(){ $('multiList').innerHTML=Array.from({length:multiLegs},(_,i)=>`<div class="multi-row"><div class="field"><label>From ${i+1}</label><input class="mfrom" list="airports"></div><div class="field"><label>To ${i+1}</label><input class="mto" list="airports"></div><div class="field"><label>Date</label><input class="mdate" type="date"></div>${i>1?`<button type="button" class="remove" data-remove="${i}">Remove</button>`:'<span></span>'}</div>`).join('');document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{multiLegs--;renderMulti()}) }
-function config(){try{return JSON.parse(localStorage.getItem('travel_express_api')||'{}')}catch{return {}}}
-function validate(){let segments=tripType==='multi'?[...document.querySelectorAll('.multi-row')].map(r=>({from:extractCode(r.querySelector('.mfrom').value),to:extractCode(r.querySelector('.mto').value),date:r.querySelector('.mdate').value})):[{from:extractCode($('from').value),to:extractCode($('to').value),date:$('depart').value}];if(tripType==='round')segments.push({from:segments[0].to,to:segments[0].from,date:$('returnDate').value});if(segments.some(s=>!s.from||!s.to||!s.date))throw Error('Complete all route and date fields.');const adults=+$('adults').value,children=+$('children').value,infants=+$('infants').value;if(adults<1)throw Error('At least one adult is required.');if(infants>adults)throw Error('Infants cannot exceed adults.');const sources=[...document.querySelectorAll('[name=flightSource]:checked')].map(x=>x.value);if(!sources.length)throw Error('Select at least one flight source.');return{segments,travellers:{adults,children,infants},sources}}
-async function post(url,body,token){const c=new AbortController(),timer=setTimeout(()=>c.abort(),30000);try{const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},body:JSON.stringify(body),signal:c.signal});if(!r.ok)throw Error('Provider returned HTTP '+r.status);return await r.json()}finally{clearTimeout(timer)}}
-function nf(x,i){return{id:x.id||'f'+i,provider:x.provider||x.source||'Provider',route:x.route||`${x.origin||''} → ${x.destination||''}`,airline:x.airline||'',depart:x.departure||x.depart||'',arrive:x.arrival||x.arrive||'',duration:+(x.durationHours||x.duration||0),durationText:x.durationText||'',stops:+(x.stops||0),price:+(x.totalPrice||x.price||0),currency:x.currency||'BDT',score:+(x.score||0),baggage:x.baggage||x.baggageAllowance||'Confirm with airline',wait:x.layover||x.wait||'Not supplied',visa:x.visa||'Verify officially',transit:x.transitVisa||x.transit||'Verify officially',lounge:x.lounge||'Check access',taxi:x.transport||x.taxi||'Check destination transport'}}
-function nh(x,i){return{id:x.id||'h'+i,name:x.name||'Property',provider:x.provider||x.source||'Provider',area:x.area||x.address||'',rating:+(x.rating||0),price:+(x.totalPrice||x.price||0),currency:x.currency||'BDT',distance:x.distance||'',amenity:Array.isArray(x.amenities)?x.amenities.join(' · '):(x.amenities||'')}}
-async function searchLive(){clearError();let q;try{q=validate()}catch(e){showError(e.message);return}const c=config();if(!c.flight?.endpoint){showError('No live flight endpoint is configured. Open API Setup and save a secure backend endpoint.');return}$('flightResults').innerHTML='<div class="loading"><div><div class="spinner"></div>Requesting live fares…</div></div>';try{const d=await post(c.flight.endpoint,{tripType,segments:q.segments,travellers:q.travellers,cabin:$('cabin').value,sources:q.sources},c.flight.token);flights=(d.flights||d.results||[]).map(nf);if(!flights.length)throw Error('No flights returned.');selectedFlight=flights[0].id;renderFlights();renderChecklist();$('pdfBtn').disabled=false;await searchHotels(q,c)}catch(e){flights=[];$('flightResults').innerHTML='<div class="empty"><strong>Live search unsuccessful</strong>No sample fares are shown.</div>';showError(e.name==='AbortError'?'Provider timed out after 30 seconds.':e.message)}}
-async function searchHotels(q,c){if(!c.hotel?.endpoint){$('hotelResults').innerHTML='<div class="empty"><strong>Hotel API not connected</strong>Configure a hotel endpoint.</div>';return}try{const s=q.segments,d=await post(c.hotel.endpoint,{destination:s[s.length-1].to,checkIn:s[0].date,checkOut:tripType==='round'?s[1].date:'',guests:q.travellers,source:$('hotelSource').value},c.hotel.token);hotels=(d.hotels||d.results||[]).map(nh);renderHotels()}catch(e){$('hotelResults').innerHTML=`<div class="empty"><strong>Hotel search unsuccessful</strong>${esc(e.message)}</div>`}}
-function renderFlights(){const sort=$('sortFlights').value,data=[...flights].sort((a,b)=>sort==='price'?a.price-b.price:sort==='duration'?a.duration-b.duration:(b.score-a.score||a.price-b.price));$('flightResults').innerHTML=data.slice(0,5).map((f,i)=>`<article class="flight ${String(selectedFlight)===String(f.id)?'selected':''}" data-flight="${esc(f.id)}"><div class="flight-top"><div class="flight-main"><div class="rank">${i+1}</div><div><div class="route">${esc(f.route)} <span class="chip">${esc(f.provider)}</span></div><div class="muted">${esc(f.airline)} · ${esc(f.depart)} → ${esc(f.arrive)}</div></div></div><div class="price">${f.currency==='BDT'?money(f.price):esc(f.currency)+' '+f.price}</div></div><div class="flight-meta"><div><span>Duration</span><b>${esc(f.durationText||f.duration+'h')}</b></div><div><span>Stops</span><b>${f.stops}</b></div><div><span>Connection</span><b>${esc(f.wait)}</b></div><div><span>Baggage</span><b>${esc(f.baggage)}</b></div><div><span>Score</span><b>${f.score||'N/A'}</b></div></div></article>`).join('');document.querySelectorAll('[data-flight]').forEach(x=>x.onclick=()=>{selectedFlight=x.dataset.flight;renderFlights();renderChecklist()})}
-function renderChecklist(){const f=flights.find(x=>String(x.id)===String(selectedFlight));if(!f)return;const a=[['V','Visa',f.visa],['T','Transit visa',f.transit],['W','Waiting time',f.wait],['B','Baggage',f.baggage],['L','Lounge',f.lounge],['C','Transport',f.taxi]];$('checklist').innerHTML='<h3>Traveller requirements</h3>'+a.map(i=>`<div class="check-item"><div class="check-icon">${i[0]}</div><div><b>${i[1]}</b><div class="muted">${esc(i[2])}</div></div></div>`).join('')+'<div class="warning">Verify all conditions with official sources before ticketing.</div>'}
-function renderHotels(){$('hotelResults').innerHTML=hotels.length?hotels.slice(0,8).map(h=>`<article class="hotel ${String(selectedHotel)===String(h.id)?'selected':''}" data-hotel="${esc(h.id)}"><div class="hotel-top"><span class="chip">${esc(h.provider)}</span><b>★ ${h.rating||'N/A'}</b></div><h4>${esc(h.name)}</h4><div class="muted">${esc(h.area)} · ${esc(h.distance)}</div><div class="muted">${esc(h.amenity)}</div><div class="hotel-price">${h.currency==='BDT'?money(h.price):esc(h.currency)+' '+h.price}</div></article>`).join(''):'<div class="empty"><strong>No properties returned</strong></div>';document.querySelectorAll('[data-hotel]').forEach(x=>x.onclick=()=>{selectedHotel=x.dataset.hotel;renderHotels()})}
-function downloadPDF(){const f=flights.find(x=>String(x.id)===String(selectedFlight)),h=hotels.find(x=>String(x.id)===String(selectedHotel))||hotels[0];if(!f){toast('Select a live flight first.');return}const w=window.open('','_blank');if(!w){toast('Allow pop-ups to generate the PDF.');return}w.document.write(`<!doctype html><title>Travel Express Proposal</title><style>body{font-family:Arial;color:#15263b;padding:35px}.head{border-bottom:4px solid #0877e6}.box{border:1px solid #ddd;border-radius:14px;padding:18px;margin:14px 0}.row{display:flex;justify-content:space-between}.price{font-size:22px;color:#0877e6;font-weight:bold}.notice{background:#fff5db;padding:10px}@media print{button{display:none}}</style><div class="head"><h1>Travel Express</h1><p>Love to make your Journey Pleasant</p></div><h2>Smart Search Proposal</h2><div class="box"><div class="row"><div><h2>${esc(f.route)}</h2>${esc(f.airline)} · ${esc(f.provider)}</div><div class="price">${f.currency==='BDT'?money(f.price):esc(f.currency)+' '+f.price}</div></div><p>${esc(f.depart)} → ${esc(f.arrive)} · ${esc(f.durationText)} · ${f.stops} stop(s)</p><p>Baggage: ${esc(f.baggage)}</p></div>${h?`<div class="box"><h2>${esc(h.name)}</h2><p>${esc(h.area)} · ★ ${h.rating}</p><div class="price">${h.currency==='BDT'?money(h.price):esc(h.currency)+' '+h.price}</div></div>`:''}<div class="box"><h2>Requirements</h2><ul><li>${esc(f.visa)}</li><li>${esc(f.transit)}</li><li>${esc(f.wait)}</li><li>${esc(f.lounge)}</li><li>${esc(f.taxi)}</li></ul></div><p class="notice">Live prices may change until booking. Verify visa, transit and baggage conditions.</p><button onclick="print()">Save as PDF</button>`);w.document.close();setTimeout(()=>w.print(),300)}
-const apiDefs=[['flight','Flight aggregation endpoint'],['hotel','Hotel aggregation endpoint'],['requirements','Travel requirements endpoint'],['ai','AI ranking endpoint']];function renderApi(){const c=config();$('apiFields').innerHTML=apiDefs.map(a=>`<div class="form-row"><label>${a[1]}</label><div class="key-input"><select id="provider_${a[0]}"><option>Custom API</option><option>ShareTrip</option><option>Google Flights Partner</option><option>Flight Expert</option><option>Booking.com</option><option>Agoda</option></select><input id="endpoint_${a[0]}" value="${esc(c[a[0]]?.endpoint||'')}" placeholder="Secure backend endpoint"><input id="token_${a[0]}" type="password" value="${esc(c[a[0]]?.token||'')}" placeholder="Backend token"></div></div>`).join('')}function saveApi(){const c={};apiDefs.forEach(a=>c[a[0]]={provider:$('provider_'+a[0]).value,endpoint:$('endpoint_'+a[0]).value.trim(),token:$('token_'+a[0]).value.trim()});localStorage.setItem('travel_express_api',JSON.stringify(c));toast('Connection settings saved.')}
-function loadSales(){try{sales=JSON.parse(localStorage.getItem('travel_express_sales')||'[]')}catch{sales=[]}renderSales()}function addSale(){sales.push({name:'',customers:0,revenue:0,tax:0,vat:0,airline:0,ait:0,discount:0,month:new Date().getMonth()});saveSales()}function saveSales(){localStorage.setItem('travel_express_sales',JSON.stringify(sales));renderSales()}function calc(r){const tax=r.revenue*r.tax/100,vat=r.revenue*r.vat/100;return{tax,vat,profit:r.revenue-tax-vat-r.airline-r.ait-r.discount}}
-function renderSales(){$('salesBody').innerHTML=sales.length?sales.map((r,i)=>{const c=calc(r);return`<tr><td><input data-i="${i}" data-k="name" value="${esc(r.name)}"></td>${['customers','revenue','tax'].map(k=>`<td><input type="number" data-i="${i}" data-k="${k}" value="${r[k]}"></td>`).join('')}<td>${money(c.tax)}</td><td><input type="number" data-i="${i}" data-k="vat" value="${r.vat}"></td><td>${money(c.vat)}</td>${['airline','ait','discount'].map(k=>`<td><input type="number" data-i="${i}" data-k="${k}" value="${r[k]}"></td>`).join('')}<td class="profit">${money(c.profit)}</td><td><button type="button" class="danger-btn" data-delete="${i}">Delete</button></td></tr>`}).join(''):'<tr><td colspan="12">No sales records. Click Add product.</td></tr>';document.querySelectorAll('#salesBody input').forEach(x=>x.onchange=()=>{sales[x.dataset.i][x.dataset.k]=x.dataset.k==='name'?x.value:+x.value;saveSales()});document.querySelectorAll('[data-delete]').forEach(x=>x.onclick=()=>{sales.splice(+x.dataset.delete,1);saveSales()});renderDashboard()}
-function renderDashboard(){const t=sales.reduce((a,r)=>{const c=calc(r);a.revenue+=r.revenue;a.customers+=r.customers;a.tax+=c.tax;a.profit+=c.profit;return a},{revenue:0,customers:0,tax:0,profit:0});$('metrics').innerHTML=[['৳','Revenue',money(t.revenue)],['◎','Net profit',money(t.profit)],['👥','Customers',t.customers],['▣','Tax',money(t.tax)]].map(m=>`<div class="metric"><b>${m[0]}</b><label>${m[1]}</label><strong>${m[2]}</strong></div>`).join('');const monthly=Array(12).fill(0);sales.forEach(r=>monthly[r.month||0]+=r.revenue);const max=Math.max(...monthly,1),names=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];$('salesChart').innerHTML=monthly.map((v,i)=>`<div class="bar-wrap"><div class="bar" style="height:${v/max*90}%"></div><small>${names[i]}</small></div>`).join('');$('destinationLegend').textContent=sales.length?'Connect booking records to populate destinations.':'No booking data.'}
-function exportSales(){const h=['Product','Customers','Revenue','Tax %','Tax amount','VAT %','VAT amount','Airline payment','AIT','Discounts','Net profit'];const rows=sales.map(r=>{const c=calc(r);return[r.name,r.customers,r.revenue,r.tax,c.tax,r.vat,c.vat,r.airline,r.ait,r.discount,c.profit]});const csv=[h,...rows].map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='travel-express-sales.csv';a.click()}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আকাশী ফ্যাশন | Akashi Fashion</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        akashi: {
+                            light: '#e0f2fe',
+                            DEFAULT: '#0284c7',
+                            dark: '#0369a1',
+                            accent: '#f43f5e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+        body { font-family: 'Hind Siliguri', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-akashi selection:text-white">
 
-let manualRequirements=[];
-function sheetRows(workbook,name){const sh=workbook.Sheets[name];return sh?XLSX.utils.sheet_to_json(sh,{defval:''}):[]}
-function valueOf(row,names){for(const n of names){if(Object.prototype.hasOwnProperty.call(row,n))return row[n]}return ''}
-function applyManualRequirements(){flights=flights.map(f=>{const code=(f.route.match(/→\s*([A-Z]{3})/)||[])[1]||'';const r=manualRequirements.find(x=>String(valueOf(x,['destination','Destination'])).toUpperCase()===code);return r?{...f,visa:valueOf(r,['visa','Visa'])||f.visa,transit:valueOf(r,['transitVisa','Transit Visa'])||f.transit,baggage:valueOf(r,['baggage','Baggage'])||f.baggage,lounge:valueOf(r,['lounge','Lounge'])||f.lounge,taxi:valueOf(r,['transport','Transport'])||f.taxi}:f})}
-async function loadManualWorkbook(){const file=$('manualExcel').files[0];if(!file){toast('Choose the Excel workbook first.');return}if(typeof XLSX==='undefined'){showManualStatus('Excel reader could not load. Connect to the internet once and reload the page.',true);return}try{const data=await file.arrayBuffer(),wb=XLSX.read(data,{type:'array'});const fr=sheetRows(wb,'Flights'),hr=sheetRows(wb,'Hotels'),rr=sheetRows(wb,'Requirements'),sr=sheetRows(wb,'Sales');if(!fr.length||!hr.length)throw Error('The workbook must contain Flights and Hotels sheets.');flights=fr.map(nf);hotels=hr.map(nh);manualRequirements=rr;applyManualRequirements();selectedFlight=flights[0]?.id||null;selectedHotel=hotels[0]?.id||null;renderFlights();renderChecklist();renderHotels();$('pdfBtn').disabled=!flights.length;sales=sr.map(r=>({name:valueOf(r,['Product name','name']),customers:+valueOf(r,['Customers','customers']),revenue:+valueOf(r,['Revenue','revenue']),tax:+valueOf(r,['Tax %','tax']),vat:+valueOf(r,['VAT %','vat']),airline:+valueOf(r,['Airline payment','airline']),ait:+valueOf(r,['AIT','ait']),discount:+valueOf(r,['Discounts','discount']),month:+valueOf(r,['Month','month']),destination:valueOf(r,['Destination','destination'])}));saveSales();showManualStatus(`Loaded ${flights.length} flights, ${hotels.length} hotels, ${rr.length} requirement records and ${sales.length} sales records.`,false);document.querySelector('[data-page="search"]').click()}catch(e){console.error(e);showManualStatus(e.message||'Unable to read the test workbook.',true)}}
-function showManualStatus(message,isError){const x=$('manualStatus');x.textContent=message;x.classList.remove('hidden');x.style.background=isError?'#fff0f2':'#e8faf3';x.style.color=isError?'#a6293d':'#087a58';x.style.borderColor=isError?'#ffc7d0':'#b9ead8'}
+    <!-- Top Bar -->
+    <div class="bg-akashi-dark text-white text-xs sm:text-sm py-2 px-4 text-center tracking-wide">
+        <span><i class="fa-solid fa-phone-volume mr-1.5"></i> হটলাইন: ০১৯০০-০০০০০০ | ক্যাশ অন ডেলিভারি সারা বাংলাদেশে!</span>
+    </div>
 
-function bind(){document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));t.classList.add('active');$(t.dataset.page+'Page').classList.remove('hidden')});document.querySelectorAll('.trip-type').forEach(b=>b.onclick=()=>setTrip(b.dataset.trip));document.querySelectorAll('.search-trigger').forEach(b=>b.onclick=()=>searchLive());$('addLeg').onclick=()=>{if(multiLegs<6){multiLegs++;renderMulti()}else toast('Maximum six segments.')};$('sortFlights').onchange=()=>{if(flights.length)renderFlights()};$('hotelSource').onchange=()=>{if(flights.length)searchLive();else toast('Run a flight search first.')};$('pdfBtn').onclick=downloadPDF;$('saveApi').onclick=saveApi;$('loadManual').onclick=loadManualWorkbook;$('addSale').onclick=addSale;$('exportSales').onclick=exportSales}
-document.addEventListener('DOMContentLoaded',()=>{init();bind()});
-</script></body></html>
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('shop')">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-akashi flex items-center justify-center text-white font-bold text-xl shadow-md shadow-sky-200">আ</div>
+                <div>
+                    <h1 class="text-base sm:text-xl font-bold text-akashi-dark leading-tight">আকাশী ফ্যাশন</h1>
+                    <span class="text-[10px] sm:text-xs text-slate-500 font-medium block -mt-0.5">প্রফেশনাল বুটিক্স ও অর্নামেন্টস</span>
+                </div>
+            </div>
+
+            <!-- Dynamic Navigation Links (Only in Shop Mode) -->
+            <nav id="shop-nav" class="hidden md:flex space-x-4 lg:space-x-6 text-xs lg:text-sm font-semibold text-slate-600 overflow-x-auto py-1">
+                <!-- Dynamically rendered categories -->
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <button id="cart-btn" onclick="toggleCart()" class="relative bg-sky-50 text-akashi-dark px-3 sm:px-4 py-2 rounded-xl font-semibold text-xs sm:text-sm flex items-center hover:bg-akashi hover:text-white transition shadow-sm border border-sky-100">
+                    <i class="fa-solid fa-cart-shopping mr-1.5 text-sm"></i> কার্ট 
+                    <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-akashi-accent text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold border-2 border-white">0</span>
+                </button>
+                <button id="admin-access-btn" onclick="openAdminLoginModal()" class="bg-slate-900 text-white px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold hover:bg-slate-800 transition flex items-center shadow-sm">
+                    <i class="fa-solid fa-user-shield mr-1.5 text-xs"></i> <span id="admin-btn-text">অ্যাডমিন</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
+
+        <!-- ================= BUYER / SHOP VIEW ================= -->
+        <div id="shop-view" class="space-y-8">
+            <!-- Hero Banner -->
+            <div class="bg-gradient-to-r from-sky-100 via-blue-50 to-indigo-100 rounded-3xl p-6 sm:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between shadow-sm border border-sky-100">
+                <div class="mb-6 md:mb-0 md:w-1/2 text-center md:text-left space-y-3">
+                    <span class="bg-akashi text-white text-[11px] sm:text-xs px-3.5 py-1 rounded-full uppercase tracking-wider font-bold shadow-sm">নতুন কালেকশন ২০২৬</span>
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-800 leading-snug">আপনার আভিজাত্য প্রকাশ করুন আকাশী ফ্যাশনের সাথে</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed">সেরা মানের ট্রেন্ডি বুটিক্স আইটেম, মার্জিত হিজাব, গহনা এবং স্টেশনারি এখন আপনার হাতে।</p>
+                    <div>
+                        <button onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'})" class="bg-akashi text-white px-6 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-sky-200 hover:bg-akashi-dark transition transform active:scale-95">শপিং শুরু করুন <i class="fa-solid fa-arrow-right-long ml-2"></i></button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="w-full max-w-sm h-48 sm:h-60 bg-white/70 backdrop-blur rounded-3xl shadow-inner flex flex-col items-center justify-center border border-sky-200/60 p-6 text-center">
+                        <i class="fa-solid fa-store text-5xl sm:text-6xl text-akashi mb-3"></i>
+                        <span class="text-sm sm:text-base font-bold text-slate-700">১০০% অরিজিনাল কটন ও ফ্যাব্রিক</span>
+                        <span class="text-xs text-slate-500 mt-1">সারা দেশে ক্যাশ অন ডেলিভারি</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section Header -->
+            <div id="products-section" class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-3 border-b border-slate-200 gap-2">
+                <h3 class="text-lg sm:text-2xl font-bold text-slate-800 flex items-center">
+                    <i class="fa-solid fa-grip-vertical text-akashi mr-2"></i> জনপ্রিয় প্রোডাক্টসমূহ
+                </h3>
+                <div class="text-xs sm:text-sm font-semibold text-slate-500" id="product-count-text">সবগুলো আইটেম দেখানো হচ্ছে</div>
+            </div>
+
+            <!-- Product Grid (Optimized for all screen sizes from mobile to TV) -->
+            <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+                <!-- Dynamic Products -->
+            </div>
+        </div>
+
+        <!-- ================= ADMIN PANEL VIEW ================= -->
+        <div id="admin-view" class="hidden space-y-6">
+            <!-- Admin Top Navigation Bar -->
+            <div class="bg-slate-900 text-white rounded-2xl p-4 sm:p-5 shadow-lg flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2.5 bg-akashi rounded-xl shadow-md">
+                        <i class="fa-solid fa-sliders text-xl text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold">অ্যাডমিন ড্যাশবোর্ড</h2>
+                        <p class="text-xs text-slate-400">শপ প্রোডাক্ট ও কাস্টমার অর্ডার কন্ট্রোল প্যানেল</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 sm:space-x-3 w-full sm:w-auto justify-end flex-wrap gap-y-2">
+                    <button id="tab-btn-orders" onclick="switchAdminTab('orders')" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-akashi text-white transition shadow">
+                        <i class="fa-solid fa-cart-flatbed mr-1.5"></i> অর্ডারসমূহ
+                    </button>
+                    <button id="tab-btn-products" onclick="switchAdminTab('products')" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+                        <i class="fa-solid fa-boxes-stacked mr-1.5"></i> প্রোডাক্ট আপলোড
+                    </button>
+                    <button id="tab-btn-categories" onclick="switchAdminTab('categories')" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+                        <i class="fa-solid fa-layer-group mr-1.5"></i> ক্যাটাগরি ম্যানেজমেন্ট
+                    </button>
+                    <button onclick="openChangePasswordModal()" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 transition" title="পাসওয়ার্ড চেঞ্জ">
+                        <i class="fa-solid fa-key mr-1.5"></i> পাসওয়ার্ড
+                    </button>
+                    <button onclick="adminLogout()" class="px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow" title="লগআউট">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Stats Summary -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+                <div class="bg-white border border-slate-200/80 p-4 rounded-2xl shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-500 text-xs sm:text-sm font-semibold">মোট অর্ডার</span>
+                        <div class="w-9 h-9 rounded-xl bg-sky-50 text-akashi flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                    </div>
+                    <h3 id="stat-total-orders" class="text-xl sm:text-2xl font-bold text-slate-800 mt-2">০</h3>
+                </div>
+                <div class="bg-white border border-slate-200/80 p-4 rounded-2xl shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-500 text-xs sm:text-sm font-semibold">মোট বিক্রি</span>
+                        <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-bangladeshi-taka-sign"></i>
+                        </div>
+                    </div>
+                    <h3 id="stat-total-sales" class="text-xl sm:text-2xl font-bold text-emerald-600 mt-2">৳০</h3>
+                </div>
+                <div class="bg-white border border-slate-200/80 p-4 rounded-2xl shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-500 text-xs sm:text-sm font-semibold">পেন্ডিং অর্ডার</span>
+                        <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                    </div>
+                    <h3 id="stat-pending-orders" class="text-xl sm:text-2xl font-bold text-amber-600 mt-2">০</h3>
+                </div>
+                <div class="bg-white border border-slate-200/80 p-4 rounded-2xl shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-500 text-xs sm:text-sm font-semibold">মোট প্রোডাক্ট</span>
+                        <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                    </div>
+                    <h3 id="stat-total-products" class="text-xl sm:text-2xl font-bold text-purple-600 mt-2">০</h3>
+                </div>
+            </div>
+
+            <!-- ADMIN SECTION 1: ORDERS MANAGEMENT TABLE -->
+            <div id="admin-orders-section" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6 space-y-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-3 border-b border-slate-100 gap-3">
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-800">অর্ডার ডিটেইলস ও ডেলিভারি আপডেট টেবিল</h3>
+                        <p class="text-xs text-slate-500">কাস্টমারের অর্ডারকৃত পণ্যের কোড, সাইজ, কালার ও স্ট্যাটাস ট্রেকিং</p>
+                    </div>
+                    <!-- Order Filter -->
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xs text-slate-500 font-semibold">ফিল্টার:</span>
+                        <select id="order-status-filter" onchange="renderAdminOrders()" class="p-2 border rounded-xl text-xs bg-white font-medium focus:ring-2 focus:ring-akashi outline-none">
+                            <option value="all">সব অর্ডার</option>
+                            <option value="পেন্ডিং">পেন্ডিং</option>
+                            <option value="ডেলিভার্ড">ডেলিভার্ড</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                    <table class="w-full text-left border-collapse min-w-[900px]">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 text-xs uppercase font-bold tracking-wider">
+                                <th class="p-3.5">ট্র্যাকিং ID</th>
+                                <th class="p-3.5">তারিখ ও সময়</th>
+                                <th class="p-3.5">কাস্টমার কন্টাক্ট</th>
+                                <th class="p-3.5">ঠিকানা</th>
+                                <th class="p-3.5">অর্ডার ডিটেইলস (কোড, সাইজ, কালার, মূল্য)</th>
+                                <th class="p-3.5">মোট (৳)</th>
+                                <th class="p-3.5">স্ট্যাটাস</th>
+                                <th class="p-3.5 text-center">ডেলিভারি ট্র্যাকিং</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-orders-table" class="text-xs sm:text-sm divide-y divide-slate-100">
+                            <!-- Dynamic Orders -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ADMIN SECTION 2: PRODUCTS MANAGEMENT (FILE UPLOAD / EDIT) -->
+            <div id="admin-products-section" class="hidden space-y-6">
+                <!-- Add New Product Form -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6" id="product-form-container">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100 flex items-center justify-between">
+                        <span id="form-title-text"><i class="fa-solid fa-cloud-arrow-up text-akashi mr-2"></i> প্রোডাক্ট আপলোড করুন (ছবি সহ)</span>
+                        <span id="edit-badge" class="hidden text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-bold">এডিট মোড সক্রিয়</span>
+                    </h3>
+                    <form id="product-form" onsubmit="handleProductSubmit(event)" class="space-y-4">
+                        <input type="hidden" id="prod-edit-id">
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">প্রোডাক্ট কোড / SKU *</label>
+                                <input type="text" id="prod-code" required class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="যেমন: AK-101">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">প্রোডাক্টের নাম *</label>
+                                <input type="text" id="prod-name" required class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="যেমন: প্রিমিয়াম লিনেন থ্রি-পিস">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">ক্যাটাগরি *</label>
+                                <select id="prod-category" required class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none bg-white">
+                                    <!-- Dynamic categories options -->
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">মূল্য (টাকা) *</label>
+                                <input type="number" id="prod-price" required min="1" class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="যেমন: ১২৫০">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">সাইজসমূহ (কমা দিয়ে আলাদা করুন)</label>
+                                <input type="text" id="prod-sizes" class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="যেমন: Free Size, M, L, XL">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">কালার কম্বিনেশন (কমা দিন)</label>
+                                <input type="text" id="prod-colors" class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="যেমন: নীল, লাল, কালো">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">স্টক স্ট্যাটাস</label>
+                                <select id="prod-stock" class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none bg-white">
+                                    <option value="In Stock">স্টকে আছে (In Stock)</option>
+                                    <option value="Stock Out">স্টক শেষ (Stock Out)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Image File Upload Drop Zone -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">প্রোডাক্টের ছবি আপলোড/পরিবর্তন করুন (মোবাইল/কম্পিউটার থেকে) *</label>
+                            <div id="drop-zone" onclick="document.getElementById('prod-file-input').click()" class="border-2 border-dashed border-sky-300 bg-sky-50/50 hover:bg-sky-50 rounded-2xl p-4 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[110px]">
+                                <i class="fa-solid fa-cloud-arrow-up text-3xl text-akashi mb-2"></i>
+                                <p class="text-xs sm:text-sm font-semibold text-slate-700">ছবি ড্রপ করুন অথবা ফাইল সিলেক্ট করতে ক্লিক করুন</p>
+                                <p class="text-[11px] text-slate-400 mt-0.5">JPG, PNG, WEBP ফরম্যাট সমর্থিত</p>
+                                <input type="file" id="prod-file-input" accept="image/*" class="hidden" onchange="previewImageFile(event)">
+                            </div>
+
+                            <!-- Preview Box -->
+                            <div id="image-preview-container" class="hidden mt-3 flex items-center space-x-3 bg-slate-100 p-2.5 rounded-xl border">
+                                <img id="image-preview" class="w-16 h-16 object-cover rounded-lg border bg-white" src="" alt="Preview">
+                                <div class="flex-1">
+                                    <p id="preview-filename" class="text-xs font-bold text-slate-700 truncate"></p>
+                                    <span class="text-[10px] text-emerald-600 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> ছবি নির্বাচিত হয়েছে</span>
+                                </div>
+                                <button type="button" onclick="clearSelectedImage()" class="text-rose-500 text-sm px-2 hover:bg-rose-50 p-1.5 rounded-lg transition"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">প্রোডাক্টের বিবরণ *</label>
+                            <textarea id="prod-desc" required rows="2" class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="কাপড়ের কোয়ালিটি, এমব্রয়ডারি ওয়ার্ক এবং অন্যান্য বৈশিষ্ট্য লিখুন"></textarea>
+                        </div>
+
+                        <div class="flex justify-end space-x-3 pt-2">
+                            <button type="button" onclick="resetProductForm()" class="px-4 py-2 bg-slate-200 text-slate-700 rounded-xl text-xs sm:text-sm font-bold hover:bg-slate-300">রিসেট/বাতিল</button>
+                            <button type="submit" id="save-prod-btn" class="px-6 py-2 bg-akashi text-white rounded-xl text-xs sm:text-sm font-bold hover:bg-akashi-dark shadow-md transition">প্রোডাক্ট সেভ করুন</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Products Inventory Table -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">প্রোডাক্ট ইনভেন্টরি লিস্ট</h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="w-full text-left border-collapse min-w-[700px]">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 text-xs uppercase font-bold tracking-wider">
+                                    <th class="p-3.5">ছবি</th>
+                                    <th class="p-3.5">কোড</th>
+                                    <th class="p-3.5">প্রোডাক্টের নাম</th>
+                                    <th class="p-3.5">ক্যাটাগরি</th>
+                                    <th class="p-3.5">মূল্য</th>
+                                    <th class="p-3.5">সাইজ/রং</th>
+                                    <th class="p-3.5">স্ট্যাটাস</th>
+                                    <th class="p-3.5 text-center">অ্যাকশন (এডিট/ডিলিট)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-products-table" class="text-xs sm:text-sm divide-y divide-slate-100">
+                                <!-- Dynamic products inventory -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADMIN SECTION 3: CATEGORY MANAGEMENT -->
+            <div id="admin-categories-section" class="hidden space-y-6">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-2 pb-2 border-b border-slate-100 flex items-center">
+                        <i class="fa-solid fa-layer-group text-akashi mr-2"></i> নতুন ক্যাটাগরি যোগ করুন
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-4">এখানে নতুন ক্যাটাগরি যোগ করলে তা শপের মেনু এবং প্রোডাক্ট আপলোড ফর্মে স্বয়ংক্রিয়ভাবে যুক্ত হবে।</p>
+                    
+                    <form onsubmit="handleCategorySubmit(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">ক্যাটাগরি আইডি (ইংরেজি ছোটহাতে, যেমন: abaya) *</label>
+                            <input type="text" id="cat-id-input" required class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="abaya">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">ক্যাটাগরির নাম (বাংলায়) *</label>
+                            <input type="text" id="cat-name-input" required class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="যেমন: আবায়া">
+                        </div>
+                        <div class="flex items-end">
+                            <button type="submit" class="w-full bg-akashi text-white py-2.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-akashi-dark transition shadow">ক্যাটাগরি সেভ করুন</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Category List Table -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">বিদ্যমান ক্যাটাগরি সমূহ</h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="w-full text-left border-collapse min-w-[500px]">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 text-xs uppercase font-bold tracking-wider">
+                                    <th class="p-3.5">ক্যাটাগরি আইডি (Key)</th>
+                                    <th class="p-3.5">ক্যাটাগরির নাম (Display Name)</th>
+                                    <th class="p-3.5 text-center">অ্যাকশন</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-categories-table" class="text-xs sm:text-sm divide-y divide-slate-100">
+                                <!-- Dynamic Category List -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-auto border-t border-slate-800">
+        <p>© ২০২৬ আকাশী ফ্যাশন | সর্বস্বত্ব সংরক্ষিত</p>
+    </footer>
+
+    <!-- ================= MODALS & DRAWERS ================= -->
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 relative shadow-2xl">
+            <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center text-xl mx-auto mb-3 shadow-md">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800">অ্যাডমিন প্যানেল প্রবেশ</h3>
+                <p class="text-xs text-slate-500 mt-1">দোকানের স্টাফ ব্যতীত প্রবেশ নিষেধ</p>
+            </div>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ইউজারনেম</label>
+                    <input type="text" id="admin-user" required class="w-full p-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="admin">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">পাসওয়ার্ড</label>
+                    <input type="password" id="admin-pass" required class="w-full p-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="পাসওয়ার্ড লিখুন">
+                </div>
+                <button type="submit" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition shadow-md">লগইন করুন</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ACTION PASSWORD CONFIRMATION MODAL -->
+    <div id="action-auth-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xs w-full p-6 relative shadow-2xl text-center">
+            <button onclick="closeActionAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-xl mx-auto mb-3">
+                <i class="fa-solid fa-key"></i>
+            </div>
+            <h3 class="text-base font-bold text-slate-800 mb-1">অ্যাডমিন পাসওয়ার্ড নিশ্চিতকরণ</h3>
+            <p class="text-xs text-slate-500 mb-4" id="action-auth-desc">অ্যাকশনটি নিশ্চিত করতে পাসওয়ার্ড প্রদান করুন</p>
+            
+            <form onsubmit="verifyActionPassword(event)" class="space-y-3">
+                <input type="password" id="confirm-admin-pass" required class="w-full p-2.5 border rounded-xl text-sm text-center focus:ring-2 focus:ring-akashi outline-none" placeholder="পাসওয়ার্ড লিখুন">
+                <button type="submit" class="w-full bg-slate-900 text-white py-2.5 rounded-xl text-xs font-bold hover:bg-slate-800 transition shadow">নিশ্চিত করুন</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CONFIRM DELETE POPUP MODAL -->
+    <div id="delete-confirm-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xs w-full p-6 relative shadow-2xl text-center space-y-4">
+            <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-2xl mx-auto shadow-inner">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-slate-800">Are you sure?</h3>
+                <p class="text-xs text-slate-500 mt-1">আপনি কি নিশ্চিত যে এই আইটেমটি স্থায়ীভাবে ডিলিট করতে চান?</p>
+            </div>
+            <div class="flex space-x-2 pt-2">
+                <button onclick="closeDeleteConfirmModal()" class="flex-1 py-2.5 bg-slate-200 text-slate-700 rounded-xl text-xs font-bold hover:bg-slate-300 transition">বাতিল</button>
+                <button onclick="executeFinalDelete()" class="flex-1 py-2.5 bg-rose-600 text-white rounded-xl text-xs font-bold hover:bg-rose-700 transition shadow">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHANGE PASSWORD MODAL -->
+    <div id="change-pass-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 relative shadow-2xl">
+            <button onclick="closeChangePasswordModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-sky-100 text-akashi rounded-2xl flex items-center justify-center text-xl mx-auto mb-2">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800">অ্যাডমিন পাসওয়ার্ড পরিবর্তন</h3>
+                <p class="text-xs text-slate-500 mt-1">নিরাপত্তার জন্য বর্তমান পাসওয়ার্ড দিয়ে নতুন পাসওয়ার্ড দিন</p>
+            </div>
+            <form onsubmit="handlePasswordChange(event)" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">বর্তমান পাসওয়ার্ড (Old Password)</label>
+                    <input type="password" id="old-pass" required class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="বর্তমান পাসওয়ার্ড">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">নতুন পাসওয়ার্ড (New Password)</label>
+                    <input type="password" id="new-pass" required minlength="4" class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="নতুন পাসওয়ার্ড">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">নতুন পাসওয়ার্ড পুনরায় লিখুন</label>
+                    <input type="password" id="confirm-new-pass" required minlength="4" class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="পুনরায় নতুন পাসওয়ার্ড">
+                </div>
+                <button type="submit" class="w-full bg-akashi text-white py-3 rounded-xl font-bold hover:bg-akashi-dark transition shadow-md">পাসওয়ার্ড সেভ করুন</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL & ZOOM MODAL -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-5 sm:p-6 relative shadow-2xl overflow-y-auto max-h-[90vh]">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center z-10"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modal-content" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dynamic Modal Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CART & CHECKOUT SIDEBAR -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 z-50 w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-4 bg-akashi text-white flex justify-between items-center shadow-md">
+            <h3 class="text-base font-bold"><i class="fa-solid fa-cart-shopping mr-2"></i> শপিং কার্ট</h3>
+            <button onclick="toggleCart()" class="text-white hover:text-slate-200 text-lg"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 divide-y divide-slate-100">
+            <!-- Dynamic Cart Items -->
+        </div>
+
+        <div class="p-4 bg-slate-50 border-t border-slate-200">
+            <div class="mb-3">
+                <label class="block text-xs font-bold text-slate-700 mb-1">ডেলিভারি এরিয়া নির্বাচন করুন:</label>
+                <select id="delivery-location" onchange="updateCartTotals()" class="w-full p-2 border rounded-xl text-xs bg-white focus:ring-2 focus:ring-akashi outline-none">
+                    <option value="dhaka">ঢাকার মধ্যে (৳৮০)</option>
+                    <option value="outside">ঢাকার বাইরে (৳১২০)</option>
+                </select>
+            </div>
+
+            <div class="space-y-1.5 text-xs sm:text-sm mb-4">
+                <div class="flex justify-between text-slate-600">
+                    <span>সাবটোটাল:</span>
+                    <span id="cart-subtotal" class="font-bold">৳০</span>
+                </div>
+                <div class="flex justify-between text-slate-600">
+                    <span>কুরিয়ার চার্জ:</span>
+                    <span id="cart-delivery-fee" class="font-bold">৳৮০</span>
+                </div>
+                <div class="flex justify-between font-bold text-base text-slate-800 pt-2 border-t border-slate-200">
+                    <span>সর্বমোট:</span>
+                    <span id="cart-grand-total" class="text-akashi-dark font-extrabold text-lg">৳০</span>
+                </div>
+            </div>
+
+            <button onclick="openCheckoutForm()" class="w-full bg-akashi text-white py-3 rounded-xl font-bold hover:bg-akashi-dark transition shadow-lg shadow-sky-200">অর্ডার কনফার্ম করতে এগিয়ে যান</button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT FORM MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b">শিপিং ও ডেলিভারি তথ্য</h3>
+            <form id="order-form" onsubmit="submitOrder(event)" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">আপনার নাম *</label>
+                    <input type="text" id="cust-name" required class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="আপনার পূর্ণ নাম লিখুন">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">কন্টাক্ট নম্বর (ফোন) *</label>
+                    <input type="tel" id="cust-phone" required class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="০১৯xxxxxxxx">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ইমেল (ঐচ্ছিক)</label>
+                    <input type="email" id="cust-email" class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="your@email.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">সম্পূর্ণ ঠিকানা (বাসা, রোড, থানা, জেলা) *</label>
+                    <textarea id="cust-address" required rows="2.5" class="w-full p-2.5 border rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-akashi outline-none" placeholder="যেমন: হাউজ ১০, রোড ৫, মিরপুর-১২, ঢাকা"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-akashi text-white py-3 rounded-xl font-bold hover:bg-akashi-dark transition shadow-md">অর্ডার নিশ্চিত করুন</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SUCCESS CONFIRMATION MODAL -->
+    <div id="success-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 text-center relative shadow-2xl">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mb-2">অর্ডার সফলভাবে জমা হয়েছে!</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mb-4">আমাদের প্রতিনিধি দ্রুত ফোন করে আপনার অর্ডারটি কনফার্ম করবেন।</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 mb-6">
+                <span class="text-xs text-slate-500 block">ট্র্যাকিং নাম্বার:</span>
+                <span id="success-tracking-id" class="text-lg font-bold text-akashi-dark tracking-wider">AKASH-98241</span>
+            </div>
+            <button onclick="closeSuccessModal()" class="w-full bg-akashi text-white py-3 rounded-xl font-bold hover:bg-akashi-dark transition">শপিং এ ফিরে যান</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Global State Admin Password & Dynamic Categories
+        let currentAdminPassword = '123456';
+
+        let categories = [
+            { id: 'all', name: 'সকল প্রোডাক্ট' },
+            { id: 'salwar', name: 'সালোয়ার কামিজ' },
+            { id: 'hijab', name: 'হিজাব' },
+            { id: 'gown', name: 'গাউন' },
+            { id: 'ornaments', name: 'অর্নামেন্টস' },
+            { id: 'stationery', name: 'স্টেশনারি' }
+        ];
+
+        // Rich Sample Products Database with diverse images
+        let products = [
+            { id: 1, code: 'AK-101', name: 'প্রিমিয়াম জর্জেট থ্রি-পিস', category: 'salwar', price: 1850, sizes: ['M', 'L', 'XL'], colors: ['আকাশী নীল', 'পিংক'], image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80', desc: 'উন্নত মানের জর্জেট ফেব্রিক এবং আকর্ষণীয় এমব্রয়ডারি কাজের সেট।', stock: 'In Stock' },
+            { id: 2, code: 'AK-102', name: 'ডিজাইনার জয়নাব হিজাব', category: 'hijab', price: 450, sizes: ['Free Size'], colors: ['কালো', 'পেস্টাল গ্রিন'], image: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?w=600&auto=format&fit=crop&q=80', desc: 'আরামদায়ক প্রিমিয়াম ফ্যাব্রিকের স্টাইলিশ হিজাব।', stock: 'In Stock' },
+            { id: 3, code: 'AK-103', name: 'রয়েল পার্টি গাউন', category: 'gown', price: 3200, sizes: ['L', 'XL', 'XXL'], colors: ['মেরুন', 'গোল্ডেন'], image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&auto=format&fit=crop&q=80', desc: 'বিয়ে বা পার্টি ব্যবহারের জন্য সেরা এমব্রয়ডারি লং গাউন।', stock: 'In Stock' },
+            { id: 4, code: 'AK-104', name: 'অ্যান্টিক গোল্ডেন জুয়েলারি সেট', category: 'ornaments', price: 1250, sizes: ['Standard'], colors: ['গোল্ডেন'], image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&auto=format&fit=crop&q=80', desc: 'পার্টি ওয়্যার বা গিফট হিসেবে অসাধারণ গহনা সেট।', stock: 'In Stock' },
+            { id: 5, code: 'AK-105', name: 'এস্থেটিক জার্নাল ও ডায়েরি সেট', category: 'stationery', price: 650, sizes: ['A5'], colors: ['মাল্টি-কালার'], image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80', desc: 'নোটবুক, স্টিকি নোট এবং ফাউন্টেন পেনসহ লাক্সারি স্টেশনারি গিফট বক্স।', stock: 'In Stock' },
+            { id: 6, code: 'AK-106', name: 'কটন এমব্রয়ডারি সালোয়ার কামিজ', category: 'salwar', price: 2100, sizes: ['S', 'M', 'L'], colors: ['অফ-হোয়াইট', 'সফট ইয়েলো'], image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80', desc: 'সামার কালেকশনের ১০০% সুতি প্রিমিয়াম কামিজ ও ওড়না।', stock: 'In Stock' }
+        ];
+
+        let cart = [];
+        let orders = [
+            { 
+                id: 'AKASH-1021', 
+                date: '09 Nov 2026, 09:30 PM', 
+                name: 'ফাহমিদা আক্তার', 
+                phone: '০১৮১১১২২২৩৩', 
+                address: 'মিরপুর-১২, ঢাকা (ঢাকার মধ্যে)', 
+                email: 'fahmida@gmail.com', 
+                items: [
+                    { code: 'AK-101', name: 'প্রিমিয়াম জর্জেট থ্রি-পিস', size: 'L', color: 'আকাশী নীল', price: 1850, qty: 1 }
+                ], 
+                deliveryFee: 80,
+                totalNum: 1930, 
+                delivered: false 
+            }
+        ];
+
+        let isAdminLoggedIn = false;
+        let tempSelectedImageData = null; 
+
+        // Pending Action Variables
+        let pendingActionType = null; // 'edit', 'delete', 'add-category', 'delete-category'
+        let pendingActionProductId = null;
+        let pendingCategoryData = null;
+
+        window.onload = function() {
+            renderCategories();
+            renderProducts(products);
+            updateDashboardStats();
+            setupDragAndDrop();
+        };
+
+        // --- DYNAMIC CATEGORIES RENDER ---
+        function renderCategories() {
+            // Navbar render
+            const nav = document.getElementById('shop-nav');
+            nav.innerHTML = '';
+            categories.forEach(cat => {
+                nav.innerHTML += `<a href="#" onclick="filterCategory('${cat.id}')" class="hover:text-akashi transition whitespace-nowrap">${cat.name}</a>`;
+            });
+
+            // Product form dropdown render
+            const prodCatSelect = document.getElementById('prod-category');
+            if(prodCatSelect) {
+                prodCatSelect.innerHTML = '';
+                categories.filter(c => c.id !== 'all').forEach(cat => {
+                    prodCatSelect.innerHTML += `<option value="${cat.id}">${cat.name}</option>`;
+                });
+            }
+
+            // Admin category table render
+            const catTable = document.getElementById('admin-categories-table');
+            if(catTable) {
+                catTable.innerHTML = '';
+                categories.filter(c => c.id !== 'all').forEach(cat => {
+                    catTable.innerHTML += `
+                        <tr class="hover:bg-slate-50 transition border-b border-slate-100">
+                            <td class="p-3.5 font-bold text-slate-700">${cat.id}</td>
+                            <td class="p-3.5 font-semibold text-slate-800">${cat.name}</td>
+                            <td class="p-3.5 text-center">
+                                <button onclick="promptCategoryDelete('${cat.id}')" class="px-2.5 py-1 bg-rose-50 text-rose-600 rounded-lg text-xs font-bold hover:bg-rose-100 transition"><i class="fa-solid fa-trash mr-1"></i> ডিলিট</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+        }
+
+        // --- IMAGE FILE UPLOAD & PREVIEW ---
+        function previewImageFile(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    tempSelectedImageData = event.target.result;
+                    document.getElementById('image-preview').src = tempSelectedImageData;
+                    document.getElementById('preview-filename').innerText = file.name;
+                    document.getElementById('image-preview-container').classList.remove('hidden');
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function clearSelectedImage() {
+            tempSelectedImageData = null;
+            document.getElementById('prod-file-input').value = '';
+            document.getElementById('image-preview-container').classList.add('hidden');
+        }
+
+        function setupDragAndDrop() {
+            const dropZone = document.getElementById('drop-zone');
+            if(!dropZone) return;
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+            function preventDefaults(e) { e.preventDefault(); e.stopPropagation(); }
+            dropZone.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                if(files.length > 0) {
+                    document.getElementById('prod-file-input').files = files;
+                    previewImageFile({ target: { files: files } });
+                }
+            });
+        }
+
+        // --- AUTH & VIEW SWITCHING ---
+        function openAdminLoginModal() {
+            if(isAdminLoggedIn) {
+                switchTab('admin');
+            } else {
+                document.getElementById('admin-login-modal').classList.remove('hidden');
+            }
+        }
+
+        function closeAdminLoginModal() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('admin-user').value;
+            const p = document.getElementById('admin-pass').value;
+
+            if(u === 'admin' && p === currentAdminPassword) {
+                isAdminLoggedIn = true;
+                closeAdminLoginModal();
+                document.getElementById('admin-btn-text').innerText = 'ড্যাশবোর্ড';
+                switchTab('admin');
+            } else {
+                alert('ভুল ইউজারনেম অথবা পাসওয়ার্ড!');
+            }
+        }
+
+        function adminLogout() {
+            isAdminLoggedIn = false;
+            document.getElementById('admin-btn-text').innerText = 'অ্যাডমিন';
+            switchTab('shop');
+        }
+
+        function switchTab(tab) {
+            const shopView = document.getElementById('shop-view');
+            const adminView = document.getElementById('admin-view');
+            const shopNav = document.getElementById('shop-nav');
+            const cartBtn = document.getElementById('cart-btn');
+
+            if(tab === 'admin') {
+                if(!isAdminLoggedIn) {
+                    openAdminLoginModal();
+                    return;
+                }
+                shopView.classList.add('hidden');
+                shopNav.classList.add('hidden');
+                cartBtn.classList.add('hidden');
+                adminView.classList.remove('hidden');
+                renderAdminOrders();
+                renderAdminProducts();
+                renderCategories();
+                updateDashboardStats();
+            } else {
+                adminView.classList.add('hidden');
+                shopView.classList.remove('hidden');
+                shopNav.classList.remove('hidden');
+                cartBtn.classList.remove('hidden');
+                renderCategories();
+                renderProducts(products);
+            }
+        }
+
+        function switchAdminTab(subTab) {
+            const ordersSec = document.getElementById('admin-orders-section');
+            const prodsSec = document.getElementById('admin-products-section');
+            const catsSec = document.getElementById('admin-categories-section');
+            
+            const btnOrders = document.getElementById('tab-btn-orders');
+            const btnProds = document.getElementById('tab-btn-products');
+            const btnCats = document.getElementById('tab-btn-categories');
+
+            ordersSec.classList.add('hidden');
+            prodsSec.classList.add('hidden');
+            catsSec.classList.add('hidden');
+
+            btnOrders.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 transition";
+            btnProds.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 transition";
+            btnCats.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 transition";
+
+            if(subTab === 'orders') {
+                ordersSec.classList.remove('hidden');
+                btnOrders.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-akashi text-white transition shadow";
+            } else if(subTab === 'products') {
+                prodsSec.classList.remove('hidden');
+                btnProds.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-akashi text-white transition shadow";
+            } else if(subTab === 'categories') {
+                catsSec.classList.remove('hidden');
+                btnCats.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-akashi text-white transition shadow";
+            }
+        }
+
+        // --- PASSWORD CHANGE LOGIC ---
+        function openChangePasswordModal() {
+            document.getElementById('change-pass-modal').classList.remove('hidden');
+        }
+
+        function closeChangePasswordModal() {
+            document.getElementById('change-pass-modal').classList.add('hidden');
+        }
+
+        function handlePasswordChange(e) {
+            e.preventDefault();
+            const oldP = document.getElementById('old-pass').value;
+            const newP = document.getElementById('new-pass').value;
+            const confirmP = document.getElementById('confirm-new-pass').value;
+
+            if(oldP !== currentAdminPassword) {
+                alert('বর্তমান পাসওয়ার্ড সঠিক নয়!');
+                return;
+            }
+            if(newP !== confirmP) {
+                alert('নতুন দুটি পাসওয়ার্ড মিলছে না!');
+                return;
+            }
+
+            currentAdminPassword = newP;
+            alert('পাসওয়ার্ড সফলভাবে পরিবর্তন করা হয়েছে!');
+            closeChangePasswordModal();
+            document.getElementById('old-pass').value = '';
+            document.getElementById('new-pass').value = '';
+            document.getElementById('confirm-new-pass').value = '';
+        }
+
+        // --- SECURE ACTION AUTHORIZATION & POPUPS ---
+        function promptActionPassword(action, id) {
+            pendingActionType = action; 
+            pendingActionProductId = id;
+            document.getElementById('confirm-admin-pass').value = '';
+            document.getElementById('action-auth-desc').innerText = action === 'edit' ? 'প্রোডাক্ট এডিট করতে পাসওয়ার্ড দিন' : 'প্রোডাক্ট ডিলিট করতে পাসওয়ার্ড দিন';
+            document.getElementById('action-auth-modal').classList.remove('hidden');
+        }
+
+        function promptCategoryDelete(catId) {
+            pendingActionType = 'delete-category';
+            pendingCategoryData = catId;
+            document.getElementById('confirm-admin-pass').value = '';
+            document.getElementById('action-auth-desc').innerText = 'ক্যাটাগরি ডিলিট করতে অ্যাডমিন পাসওয়ার্ড দিন';
+            document.getElementById('action-auth-modal').classList.remove('hidden');
+        }
+
+        function closeActionAuthModal() {
+            document.getElementById('action-auth-modal').classList.add('hidden');
+        }
+
+        function verifyActionPassword(e) {
+            e.preventDefault();
+            const pass = document.getElementById('confirm-admin-pass').value;
+
+            if(pass === currentAdminPassword) {
+                closeActionAuthModal();
+                if(pendingActionType === 'edit') {
+                    executeEditProduct(pendingActionProductId);
+                } else if(pendingActionType === 'delete') {
+                    document.getElementById('delete-confirm-modal').classList.remove('hidden');
+                } else if(pendingActionType === 'add-category') {
+                    executeAddCategory();
+                } else if(pendingActionType === 'delete-category') {
+                    categories = categories.filter(c => c.id !== pendingCategoryData);
+                    renderCategories();
+                    alert('ক্যাটাগরি সফলভাবে ডিলিট করা হয়েছে!');
+                }
+            } else {
+                alert('ভুল অ্যাডমিন পাসওয়ার্ড!');
+            }
+        }
+
+        function closeDeleteConfirmModal() {
+            document.getElementById('delete-confirm-modal').classList.add('hidden');
+            pendingActionType = null;
+            pendingActionProductId = null;
+        }
+
+        function executeFinalDelete() {
+            if(pendingActionProductId) {
+                products = products.filter(p => p.id !== pendingActionProductId);
+                renderAdminProducts();
+                renderProducts(products);
+                updateDashboardStats();
+                closeDeleteConfirmModal();
+            }
+        }
+
+        // --- CATEGORY ADD SECURE FLOW ---
+        function handleCategorySubmit(e) {
+            e.preventDefault();
+            const catId = document.getElementById('cat-id-input').value.trim().toLowerCase();
+            const catName = document.getElementById('cat-name-input').value.trim();
+
+            if(categories.some(c => c.id === catId)) {
+                alert('এই ক্যাটাগরি আইডিটি ইতিপূর্বেই বিদ্যমান রয়েছে!');
+                return;
+            }
+
+            pendingActionType = 'add-category';
+            pendingCategoryData = { id: catId, name: catName };
+            
+            document.getElementById('confirm-admin-pass').value = '';
+            document.getElementById('action-auth-desc').innerText = 'নতুন ক্যাটাগরি সেভ করতে অ্যাডমিন পাসওয়ার্ড দিন';
+            document.getElementById('action-auth-modal').classList.remove('hidden');
+        }
+
+        function executeAddCategory() {
+            if(pendingCategoryData) {
+                categories.push(pendingCategoryData);
+                renderCategories();
+                document.getElementById('cat-id-input').value = '';
+                document.getElementById('cat-name-input').value = '';
+                alert('নতুন ক্যাটাগরি সফলভাবে যোগ করা হয়েছে!');
+                pendingCategoryData = null;
+            }
+        }
+
+        // --- EDIT PRODUCT EXECUTION ---
+        function executeEditProduct(id) {
+            const p = products.find(item => item.id === id);
+            if(!p) return;
+
+            document.getElementById('prod-edit-id').value = p.id;
+            document.getElementById('prod-code').value = p.code || '';
+            document.getElementById('prod-name').value = p.name;
+            document.getElementById('prod-category').value = p.category;
+            document.getElementById('prod-price').value = p.price;
+            document.getElementById('prod-sizes').value = (p.sizes || []).join(', ');
+            document.getElementById('prod-colors').value = (p.colors || []).join(', ');
+            document.getElementById('prod-stock').value = p.stock || 'In Stock';
+            document.getElementById('prod-desc').value = p.desc;
+
+            if(p.image) {
+                tempSelectedImageData = p.image;
+                document.getElementById('image-preview').src = p.image;
+                document.getElementById('preview-filename').innerText = 'বর্তমান আপলোডকৃত ছবি';
+                document.getElementById('image-preview-container').classList.remove('hidden');
+            }
+
+            document.getElementById('form-title-text').innerHTML = `<i class="fa-solid fa-pen-to-square text-amber-500 mr-2"></i> প্রোডাক্ট তথ্য মডিফাই করুন (কোড: ${p.code})`;
+            document.getElementById('edit-badge').classList.remove('hidden');
+            document.getElementById('save-prod-btn').innerText = 'আপডেট সেভ করুন';
+            document.getElementById('save-prod-btn').className = "px-6 py-2 bg-amber-600 text-white rounded-xl text-xs sm:text-sm font-bold hover:bg-amber-700 shadow-md transition";
+
+            switchAdminTab('products');
+            document.getElementById('product-form-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleProductSubmit(e) {
+            e.preventDefault();
+            const editId = document.getElementById('prod-edit-id').value;
+            const code = document.getElementById('prod-code').value;
+            const name = document.getElementById('prod-name').value;
+            const category = document.getElementById('prod-category').value;
+            const price = parseFloat(document.getElementById('prod-price').value);
+            const sizesStr = document.getElementById('prod-sizes').value;
+            const colorsStr = document.getElementById('prod-colors').value;
+            const stock = document.getElementById('prod-stock').value;
+            const desc = document.getElementById('prod-desc').value;
+
+            const image = tempSelectedImageData || 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80';
+
+            const sizes = sizesStr ? sizesStr.split(',').map(s => s.trim()) : ['Standard'];
+            const colors = colorsStr ? colorsStr.split(',').map(c => c.trim()) : ['Standard'];
+
+            if(editId) {
+                const index = products.findIndex(p => p.id == editId);
+                if(index !== -1) {
+                    const currentImg = tempSelectedImageData || products[index].image;
+                    products[index] = { id: parseInt(editId), code, name, category, price, sizes, colors, image: currentImg, stock, desc };
+                }
+                alert('প্রোডাক্ট তথ্য সফলভাবে আপডেট করা হয়েছে!');
+            } else {
+                const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+                products.push({ id: newId, code, name, category, price, sizes, colors, image, stock, desc });
+                alert('নতুন প্রোডাক্ট সফলভাবে সেভ করা হয়েছে!');
+            }
+
+            resetProductForm();
+            renderAdminProducts();
+            renderProducts(products);
+            updateDashboardStats();
+        }
+
+        function resetProductForm() {
+            document.getElementById('product-form').reset();
+            document.getElementById('prod-edit-id').value = '';
+            document.getElementById('form-title-text').innerHTML = `<i class="fa-solid fa-cloud-arrow-up text-akashi mr-2"></i> প্রোডাক্ট আপলোড করুন (ছবি সহ)`;
+            document.getElementById('edit-badge').classList.add('hidden');
+            document.getElementById('save-prod-btn').innerText = 'প্রোডাক্ট সেভ করুন';
+            document.getElementById('save-prod-btn').className = "px-6 py-2 bg-akashi text-white rounded-xl text-xs sm:text-sm font-bold hover:bg-akashi-dark shadow-md transition";
+            clearSelectedImage();
+        }
+
+        // --- BUYER SHOP & PRODUCTS DISPLAY (RATIO CONTROLLED) ---
+        function renderProducts(itemsToRender) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+            
+            if(itemsToRender.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 font-semibold">কোনো প্রোডাক্ট পাওয়া যায়নি।</div>`;
+                return;
+            }
+
+            itemsToRender.forEach(p => {
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl p-3 sm:p-4 shadow-sm hover:shadow-md transition border border-slate-100 flex flex-col justify-between group">
+                        <div>
+                            <!-- Aspect ratio controlled container for multi-device harmony -->
+                            <div class="w-full aspect-square bg-slate-100 rounded-xl mb-3 cursor-pointer relative overflow-hidden" onclick="openProductModal(${p.id})">
+                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/400?text=No+Image'">
+                                <span class="absolute top-2 left-2 bg-slate-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">কোড: ${p.code || 'N/A'}</span>
+                                ${p.stock === 'Stock Out' ? '<span class="absolute top-2 right-2 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">স্টক শেষ</span>' : ''}
+                            </div>
+                            <span class="text-[10px] sm:text-xs bg-sky-100 text-akashi-dark px-2 py-0.5 rounded font-bold uppercase">${p.category}</span>
+                            <h4 class="font-bold text-slate-800 text-xs sm:text-sm mt-1.5 mb-1 cursor-pointer hover:text-akashi transition line-clamp-1" onclick="openProductModal(${p.id})">${p.name}</h4>
+                            <p class="text-[11px] text-slate-500 mb-2 line-clamp-1">${p.desc}</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm sm:text-base font-extrabold text-akashi-dark">৳${p.price}</span>
+                                <span class="text-[10px] text-slate-400 font-medium">সাইজ: ${p.sizes ? p.sizes.length : 1}টি</span>
+                            </div>
+                            <button onclick="openProductModal(${p.id})" ${p.stock === 'Stock Out' ? 'disabled class="w-full bg-slate-200 text-slate-400 py-2 rounded-xl text-xs font-bold cursor-not-allowed"' : 'class="w-full bg-akashi-light text-akashi-dark hover:bg-akashi hover:text-white py-2 rounded-xl text-xs font-bold transition shadow-sm"'}>
+                                <i class="fa-solid fa-cart-plus mr-1"></i> অর্ডার করুন
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterCategory(cat) {
+            if(cat === 'all') {
+                renderProducts(products);
+                document.getElementById('product-count-text').innerText = 'সবগুলো আইটেম দেখানো হচ্ছে';
+            } else {
+                const catObj = categories.find(c => c.id === cat);
+                const filtered = products.filter(p => p.category === cat);
+                renderProducts(filtered);
+                document.getElementById('product-count-text').innerText = `ক্যাটাগরি: ${catObj ? catObj.name : cat}`;
+            }
+        }
+
+        function openProductModal(id) {
+            const p = products.find(item => item.id === id);
+            const modal = document.getElementById('product-modal');
+            const content = document.getElementById('modal-content');
+            
+            const sizesHtml = (p.sizes || ['Standard']).map((s, idx) => `
+                <label class="cursor-pointer">
+                    <input type="radio" name="modal-size" value="${s}" ${idx === 0 ? 'checked' : ''} class="peer hidden">
+                    <span class="px-3 py-1 bg-slate-100 border rounded-lg text-xs font-bold text-slate-700 peer-checked:bg-akashi peer-checked:text-white peer-checked:border-akashi transition inline-block">${s}</span>
+                </label>
+            `).join('');
+
+            const colorsHtml = (p.colors || ['Standard']).map((c, idx) => `
+                <label class="cursor-pointer">
+                    <input type="radio" name="modal-color" value="${c}" ${idx === 0 ? 'checked' : ''} class="peer hidden">
+                    <span class="px-3 py-1 bg-slate-100 border rounded-lg text-xs font-bold text-slate-700 peer-checked:bg-slate-900 peer-checked:text-white peer-checked:border-slate-900 transition inline-block">${c}</span>
+                </label>
+            `).join('');
+
+            content.innerHTML = `
+                <div class="w-full aspect-square bg-slate-100 rounded-2xl overflow-hidden relative shadow-inner">
+                    <img src="${p.image}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400?text=No+Image'">
+                </div>
+                <div class="flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-[10px] bg-sky-100 text-akashi-dark px-2 py-0.5 rounded font-bold uppercase">${p.category}</span>
+                            <span class="text-[10px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded font-bold">কোড: ${p.code || 'N/A'}</span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mt-2 mb-1">${p.name}</h3>
+                        <p class="text-xl font-extrabold text-akashi-dark mb-3">৳${p.price}</p>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">${p.desc}</p>
+
+                        <div class="space-y-3">
+                            <div>
+                                <span class="block text-xs font-bold text-slate-700 mb-1">সাইজ সিলেক্ট করুন:</span>
+                                <div class="flex flex-wrap gap-1.5">${sizesHtml}</div>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-700 mb-1">কালার সিলেক্ট করুন:</span>
+                                <div class="flex flex-wrap gap-1.5">${colorsHtml}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="addSelectedToCart(${p.id}); closeModal(); toggleCart();" ${p.stock === 'Stock Out' ? 'disabled class="w-full bg-slate-300 text-slate-500 py-3 rounded-xl font-bold"' : 'class="w-full bg-akashi text-white py-3 rounded-xl font-bold hover:bg-akashi-dark transition shadow-lg shadow-sky-200"'}>
+                        কার্টে যোগ করুন
+                    </button>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function addSelectedToCart(id) {
+            const p = products.find(item => item.id === id);
+            const sizeRadio = document.querySelector('input[name="modal-size"]:checked');
+            const colorRadio = document.querySelector('input[name="modal-color"]:checked');
+
+            const selectedSize = sizeRadio ? sizeRadio.value : (p.sizes ? p.sizes[0] : 'N/A');
+            const selectedColor = colorRadio ? colorRadio.value : (p.colors ? p.colors[0] : 'N/A');
+
+            const cartKey = `${p.id}-${selectedSize}-${selectedColor}`;
+            const existing = cart.find(item => item.cartKey === cartKey);
+
+            if(existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    cartKey: cartKey,
+                    id: p.id,
+                    code: p.code || 'N/A',
+                    name: p.name,
+                    price: p.price,
+                    size: selectedSize,
+                    color: selectedColor,
+                    qty: 1
+                });
+            }
+
+            updateCartCount();
+            renderCartItems();
+        }
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            sidebar.classList.toggle('translate-x-full');
+            renderCartItems();
+        }
+
+        function updateCartCount() {
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-count').innerText = totalQty;
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items-container');
+            if(cart.length === 0) {
+                container.innerHTML = `<div class="text-center py-12 text-slate-400 font-medium"><i class="fa-solid fa-basket-shopping text-4xl mb-2"></i><p>আপনার কার্ট খালি রয়েছে</p></div>`;
+                updateCartTotals();
+                return;
+            }
+            container.innerHTML = '';
+            cart.forEach((item, index) => {
+                container.innerHTML += `
+                    <div class="py-3 flex items-center justify-between">
+                        <div>
+                            <h5 class="font-bold text-xs sm:text-sm text-slate-800">${item.name}</h5>
+                            <span class="text-[11px] text-slate-500 block">কোড: ${item.code} | সাইজ: ${item.size} | রং: ${item.color}</span>
+                            <span class="text-xs font-bold text-akashi-dark">৳${item.price} × ${item.qty}</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="changeQty(${index}, -1)" class="w-6 h-6 bg-slate-100 rounded-md text-slate-700 font-bold hover:bg-slate-200">-</button>
+                            <span class="text-xs font-bold">${item.qty}</span>
+                            <button onclick="changeQty(${index}, 1)" class="w-6 h-6 bg-slate-100 rounded-md text-slate-700 font-bold hover:bg-slate-200">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+            updateCartTotals();
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if(cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartCount();
+            renderCartItems();
+        }
+
+        function updateCartTotals() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const location = document.getElementById('delivery-location').value;
+            const deliveryFee = location === 'dhaka' ? 80 : 120;
+            const grandTotal = subtotal + (cart.length > 0 ? deliveryFee : 0);
+
+            document.getElementById('cart-subtotal').innerText = `৳${subtotal}`;
+            document.getElementById('cart-delivery-fee').innerText = `৳${cart.length > 0 ? deliveryFee : 0}`;
+            document.getElementById('cart-grand-total').innerText = `৳${grandTotal}`;
+        }
+
+        function openCheckoutForm() {
+            if(cart.length === 0) {
+                alert('দয়া করে কার্টে অন্তত একটি প্রোডাক্ট যোগ করুন!');
+                return;
+            }
+            toggleCart();
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function submitOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const email = document.getElementById('cust-email').value || 'N/A';
+            const address = document.getElementById('cust-address').value;
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const location = document.getElementById('delivery-location').value;
+            const deliveryFee = location === 'dhaka' ? 80 : 120;
+            const grandTotal = subtotal + deliveryFee;
+
+            const trackingId = 'AKASH-' + Math.floor(10000 + Math.random() * 90000);
+            const orderItems = cart.map(i => ({ ...i }));
+
+            orders.unshift({
+                id: trackingId,
+                date: new Date().toLocaleString('bn-BD'),
+                name: name,
+                phone: phone,
+                address: `${address} (${location === 'dhaka' ? 'ঢাকার মধ্যে' : 'ঢাকার বাইরে'})`,
+                email: email,
+                items: orderItems,
+                deliveryFee: deliveryFee,
+                totalNum: grandTotal,
+                delivered: false
+            });
+
+            cart = [];
+            updateCartCount();
+            closeCheckoutModal();
+
+            document.getElementById('success-tracking-id').innerText = trackingId;
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            switchTab('shop');
+        }
+
+        // --- ADMIN DASHBOARD DISPLAY LOGIC ---
+        function updateDashboardStats() {
+            document.getElementById('stat-total-orders').innerText = orders.length;
+            const totalSales = orders.filter(o => o.delivered === true).reduce((sum, o) => sum + o.totalNum, 0);
+            document.getElementById('stat-total-sales').innerText = `৳${totalSales}`;
+            const pending = orders.filter(o => o.delivered === false).length;
+            document.getElementById('stat-pending-orders').innerText = pending;
+            document.getElementById('stat-total-products').innerText = products.length;
+        }
+
+        function renderAdminOrders() {
+            const tbody = document.getElementById('admin-orders-table');
+            const filterValue = document.getElementById('order-status-filter').value;
+            tbody.innerHTML = '';
+
+            let filteredOrders = orders;
+            if(filterValue === 'পেন্ডিং') filteredOrders = orders.filter(o => !o.delivered);
+            if(filterValue === 'ডেলিভার্ড') filteredOrders = orders.filter(o => o.delivered);
+
+            if(filteredOrders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="text-center py-6 text-slate-400 font-semibold">কোনো অর্ডার পাওয়া যায়নি।</td></tr>`;
+                return;
+            }
+
+            filteredOrders.forEach((o) => {
+                const itemsSummaryHtml = o.items.map(item => 
+                    `<div class="py-0.5 text-slate-700">
+                        <span class="font-bold text-slate-900">${item.name}</span> 
+                        <span class="bg-sky-100 text-akashi-dark text-[10px] px-1.5 py-0.5 rounded font-bold">কোড: ${item.code}</span> 
+                        <span>[সাইজ: ${item.size}, কালার: ${item.color}, পরিমাণ: ${item.qty}টি × ৳${item.price}]</span>
+                    </div>`
+                ).join('');
+
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-50 transition border-b border-slate-100">
+                        <td class="p-3 font-extrabold text-akashi-dark">${o.id}</td>
+                        <td class="p-3 text-slate-500 text-[11px]">${o.date}</td>
+                        <td class="p-3">
+                            <span class="font-bold text-slate-800 block">${o.name}</span>
+                            <a href="tel:${o.phone}" class="text-akashi font-semibold text-xs hover:underline"><i class="fa-solid fa-phone-alt mr-1"></i> ${o.phone}</a>
+                        </td>
+                        <td class="p-3 text-slate-600 text-xs max-w-xs">${o.address}</td>
+                        <td class="p-3 text-xs max-w-md">${itemsSummaryHtml}</td>
+                        <td class="p-3 font-extrabold text-slate-800">৳${o.totalNum}</td>
+                        <td class="p-3">
+                            ${o.delivered 
+                                ? '<span class="bg-emerald-100 text-emerald-700 text-[10px] px-2.5 py-1 rounded-full font-bold inline-flex items-center"><i class="fa-solid fa-circle-check mr-1"></i> ডেলিভার্ড</span>' 
+                                : '<span class="bg-amber-100 text-amber-700 text-[10px] px-2.5 py-1 rounded-full font-bold inline-flex items-center"><i class="fa-solid fa-clock mr-1"></i> পেন্ডিং</span>'}
+                        </td>
+                        <td class="p-3 text-center">
+                            <button onclick="toggleDeliveryStatus('${o.id}')" class="px-3 py-1.5 rounded-xl text-xs font-bold ${o.delivered ? 'bg-slate-200 text-slate-700 hover:bg-slate-300' : 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm'} transition">
+                                ${o.delivered ? 'পেন্ডিং করুন' : 'ডেলিভারি সম্পন্ন'}
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function toggleDeliveryStatus(orderId) {
+            const targetOrder = orders.find(o => o.id === orderId);
+            if(targetOrder) {
+                targetOrder.delivered = !targetOrder.delivered;
+                updateDashboardStats();
+                renderAdminOrders();
+            }
+        }
+
+        function renderAdminProducts() {
+            const tbody = document.getElementById('admin-products-table');
+            tbody.innerHTML = '';
+
+            products.forEach(p => {
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-50 transition border-b border-slate-100">
+                        <td class="p-3">
+                            <img src="${p.image}" class="w-10 h-10 object-cover rounded-lg border border-slate-200" onerror="this.src='https://via.placeholder.com/50'">
+                        </td>
+                        <td class="p-3 font-bold text-slate-700">${p.code || 'N/A'}</td>
+                        <td class="p-3 font-bold text-slate-800">${p.name}</td>
+                        <td class="p-3 text-xs uppercase font-semibold text-slate-500">${p.category}</td>
+                        <td class="p-3 font-extrabold text-akashi-dark">৳${p.price}</td>
+                        <td class="p-3 text-xs text-slate-500">
+                            <div><span class="font-semibold">সাইজ:</span> ${(p.sizes || []).join(', ')}</div>
+                            <div><span class="font-semibold">কালার:</span> ${(p.colors || []).join(', ')}</div>
+                        </td>
+                        <td class="p-3">
+                            <span class="text-[10px] px-2 py-0.5 rounded font-bold ${p.stock === 'Stock Out' ? 'bg-rose-100 text-rose-600' : 'bg-emerald-100 text-emerald-600'}">
+                                ${p.stock || 'In Stock'}
+                            </span>
+                        </td>
+                        <td class="p-3 text-center space-x-2">
+                            <button onclick="promptActionPassword('edit', ${p.id})" class="px-2.5 py-1 bg-sky-50 text-akashi rounded-lg text-xs font-bold hover:bg-sky-100 transition" title="এডিট করুন"><i class="fa-solid fa-pen-to-square mr-1"></i> এডিট</button>
+                            <button onclick="promptActionPassword('delete', ${p.id})" class="px-2.5 py-1 bg-rose-50 text-rose-600 rounded-lg text-xs font-bold hover:bg-rose-100 transition" title="ডিলিট করুন"><i class="fa-solid fa-trash mr-1"></i> ডিলিট</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
